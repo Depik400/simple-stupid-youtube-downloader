@@ -1,3 +1,5 @@
+README написано с помощью Grok.ai
+
 # youtube_downloader
 
 ## Описание проекта
