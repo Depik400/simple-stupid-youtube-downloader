@@ -66,11 +66,11 @@ type Config struct {
 }
 
 func NewConfig(logger *log.Logger) Config {
-	token := "7507708709:AAHVOuavXE5gEg50V2K-A1A9W0nOIGFjt0s"
+	token := os.Getenv("TELEGRAM_TOKEN")
 	if token == "" {
 		logger.Fatalf("TELEGRAM_TOKEN не задан")
 	}
-	endpoint := "http://localhost:4040/bot%s/%s"
+	endpoint := os.Getenv("TELEGRAM_API_ENDPOINT")
 	if endpoint == "" {
 		logger.Fatalf("TELEGRAM_API_ENDPOINT не задан")
 	}
