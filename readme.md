@@ -127,6 +127,16 @@ curl -O "http://localhost:8080/download?url=https://www.youtube.com/watch?v=rFej
    - Хендлер `/download` (`downloadHandler`): Обрабатывает GET-запросы, проверяет базу на наличие готового файла, если его нет — создаёт новую задачу.
    - Использует воркер пул (`workerPool`) для ограничения числа одновременно выполняемых задач скачивания.
 
+
+	apiServer = os.Getenv("API_SERVER")
+	if apiServer == "" {
+		apiServer = "http://localhost:4040" // Значение по умолчанию
+	}
+	telegramToken = os.Getenv("TELEGRAM_TOKEN")
+	if telegramToken == "" {
+		telegramToken = "7507708709:AAHVOuavXE5gEg50V2K-A1A9W0nOIGFjt0s"
+	}
+
 2. **Воркер пул**:
    - Канал `workerPool` с фиксированным числом слотов (`maxWorkers = 5`).
    - Каждый запрос занимает слот перед началом обработки и освобождает его после.
